@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             this.gbCargaDeDatos = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblDeuda = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txtDeuda = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.lblLimite = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtLimiteDeCredito = new System.Windows.Forms.TextBox();
             this.btnCargar = new System.Windows.Forms.Button();
+            this.txtLimiteDeCredito = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.lblLimite = new System.Windows.Forms.Label();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtDeuda = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.lblDeuda = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.lblTotalDeuda = new System.Windows.Forms.Label();
-            this.txtTotalDeuda = new System.Windows.Forms.TextBox();
             this.btnListar = new System.Windows.Forms.Button();
+            this.txtTotalDeuda = new System.Windows.Forms.TextBox();
+            this.lblTotalDeuda = new System.Windows.Forms.Label();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Deuda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Limite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDeudores = new System.Windows.Forms.Button();
             this.gbCargaDeDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -71,74 +72,6 @@
             this.gbCargaDeDatos.TabStop = false;
             this.gbCargaDeDatos.Text = "Carga de datos";
             // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(22, 48);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Codigo:";
-            // 
-            // lblDeuda
-            // 
-            this.lblDeuda.AutoSize = true;
-            this.lblDeuda.Location = new System.Drawing.Point(22, 105);
-            this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(42, 13);
-            this.lblDeuda.TabIndex = 1;
-            this.lblDeuda.Text = "Deuda:";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(71, 47);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigo.TabIndex = 2;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
-            // 
-            // txtDeuda
-            // 
-            this.txtDeuda.Location = new System.Drawing.Point(70, 98);
-            this.txtDeuda.Name = "txtDeuda";
-            this.txtDeuda.Size = new System.Drawing.Size(100, 20);
-            this.txtDeuda.TabIndex = 3;
-            this.txtDeuda.TextChanged += new System.EventHandler(this.txtDeuda_TextChanged);
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(239, 44);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
-            this.lblUsuario.TabIndex = 4;
-            this.lblUsuario.Text = "Usuario:";
-            // 
-            // lblLimite
-            // 
-            this.lblLimite.AutoSize = true;
-            this.lblLimite.Location = new System.Drawing.Point(239, 105);
-            this.lblLimite.Name = "lblLimite";
-            this.lblLimite.Size = new System.Drawing.Size(87, 13);
-            this.lblLimite.TabIndex = 5;
-            this.lblLimite.Text = "Limite de credito:";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Location = new System.Drawing.Point(305, 41);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(123, 20);
-            this.txtUsuario.TabIndex = 6;
-            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
-            // 
-            // txtLimiteDeCredito
-            // 
-            this.txtLimiteDeCredito.Location = new System.Drawing.Point(352, 102);
-            this.txtLimiteDeCredito.Name = "txtLimiteDeCredito";
-            this.txtLimiteDeCredito.Size = new System.Drawing.Size(76, 20);
-            this.txtLimiteDeCredito.TabIndex = 7;
-            this.txtLimiteDeCredito.TextChanged += new System.EventHandler(this.txtLimiteDeCredito_TextChanged);
-            // 
             // btnCargar
             // 
             this.btnCargar.Location = new System.Drawing.Point(370, 156);
@@ -149,8 +82,77 @@
             this.btnCargar.UseVisualStyleBackColor = true;
             this.btnCargar.Click += new System.EventHandler(this.btnCargar_Click);
             // 
+            // txtLimiteDeCredito
+            // 
+            this.txtLimiteDeCredito.Location = new System.Drawing.Point(352, 102);
+            this.txtLimiteDeCredito.Name = "txtLimiteDeCredito";
+            this.txtLimiteDeCredito.Size = new System.Drawing.Size(76, 20);
+            this.txtLimiteDeCredito.TabIndex = 7;
+            this.txtLimiteDeCredito.TextChanged += new System.EventHandler(this.txtLimiteDeCredito_TextChanged);
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Location = new System.Drawing.Point(305, 41);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(123, 20);
+            this.txtUsuario.TabIndex = 6;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
+            // 
+            // lblLimite
+            // 
+            this.lblLimite.AutoSize = true;
+            this.lblLimite.Location = new System.Drawing.Point(239, 105);
+            this.lblLimite.Name = "lblLimite";
+            this.lblLimite.Size = new System.Drawing.Size(87, 13);
+            this.lblLimite.TabIndex = 5;
+            this.lblLimite.Text = "Limite de credito:";
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Location = new System.Drawing.Point(239, 44);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(46, 13);
+            this.lblUsuario.TabIndex = 4;
+            this.lblUsuario.Text = "Usuario:";
+            // 
+            // txtDeuda
+            // 
+            this.txtDeuda.Location = new System.Drawing.Point(70, 98);
+            this.txtDeuda.Name = "txtDeuda";
+            this.txtDeuda.Size = new System.Drawing.Size(100, 20);
+            this.txtDeuda.TabIndex = 3;
+            this.txtDeuda.TextChanged += new System.EventHandler(this.txtDeuda_TextChanged);
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(71, 47);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            // 
+            // lblDeuda
+            // 
+            this.lblDeuda.AutoSize = true;
+            this.lblDeuda.Location = new System.Drawing.Point(22, 105);
+            this.lblDeuda.Name = "lblDeuda";
+            this.lblDeuda.Size = new System.Drawing.Size(42, 13);
+            this.lblDeuda.TabIndex = 1;
+            this.lblDeuda.Text = "Deuda:";
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(22, 48);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(43, 13);
+            this.lblCodigo.TabIndex = 0;
+            this.lblCodigo.Text = "Codigo:";
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDeudores);
             this.groupBox1.Controls.Add(this.btnListar);
             this.groupBox1.Controls.Add(this.txtTotalDeuda);
             this.groupBox1.Controls.Add(this.lblTotalDeuda);
@@ -161,6 +163,32 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consulta de datos";
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(389, 288);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 38);
+            this.btnListar.TabIndex = 3;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
+            // 
+            // txtTotalDeuda
+            // 
+            this.txtTotalDeuda.Location = new System.Drawing.Point(373, 248);
+            this.txtTotalDeuda.Name = "txtTotalDeuda";
+            this.txtTotalDeuda.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalDeuda.TabIndex = 2;
+            // 
+            // lblTotalDeuda
+            // 
+            this.lblTotalDeuda.AutoSize = true;
+            this.lblTotalDeuda.Location = new System.Drawing.Point(285, 251);
+            this.lblTotalDeuda.Name = "lblTotalDeuda";
+            this.lblTotalDeuda.Size = new System.Drawing.Size(82, 13);
+            this.lblTotalDeuda.TabIndex = 1;
+            this.lblTotalDeuda.Text = "Total de deuda:";
             // 
             // dgvClientes
             // 
@@ -174,32 +202,6 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(448, 206);
             this.dgvClientes.TabIndex = 0;
-            // 
-            // lblTotalDeuda
-            // 
-            this.lblTotalDeuda.AutoSize = true;
-            this.lblTotalDeuda.Location = new System.Drawing.Point(285, 251);
-            this.lblTotalDeuda.Name = "lblTotalDeuda";
-            this.lblTotalDeuda.Size = new System.Drawing.Size(82, 13);
-            this.lblTotalDeuda.TabIndex = 1;
-            this.lblTotalDeuda.Text = "Total de deuda:";
-            // 
-            // txtTotalDeuda
-            // 
-            this.txtTotalDeuda.Location = new System.Drawing.Point(373, 248);
-            this.txtTotalDeuda.Name = "txtTotalDeuda";
-            this.txtTotalDeuda.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalDeuda.TabIndex = 2;
-            // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(389, 288);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 23);
-            this.btnListar.TabIndex = 3;
-            this.btnListar.Text = "Listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Codigo
             // 
@@ -221,11 +223,21 @@
             this.Limite.HeaderText = "Limite";
             this.Limite.Name = "Limite";
             // 
+            // btnDeudores
+            // 
+            this.btnDeudores.Location = new System.Drawing.Point(292, 288);
+            this.btnDeudores.Name = "btnDeudores";
+            this.btnDeudores.Size = new System.Drawing.Size(75, 38);
+            this.btnDeudores.TabIndex = 4;
+            this.btnDeudores.Text = "Listar Deudores";
+            this.btnDeudores.UseVisualStyleBackColor = true;
+            this.btnDeudores.Click += new System.EventHandler(this.btnDeudores_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 543);
+            this.ClientSize = new System.Drawing.Size(613, 604);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbCargaDeDatos);
             this.Name = "Form1";
@@ -262,6 +274,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Deuda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Limite;
+        private System.Windows.Forms.Button btnDeudores;
     }
 }
 

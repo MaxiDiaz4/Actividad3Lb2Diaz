@@ -37,22 +37,36 @@ namespace Actividad3Lb2Diaz
         {
             if (IND < Clientes.Length)
             {
-                Clientes[IND].Codigo = Convert.ToInt32(txtCodigo.Text);
-                Clientes[IND].Usuario = txtUsuario.Text;
-                Clientes[IND].Deuda = Convert.ToDecimal(txtDeuda.Text);
-                Clientes[IND].Limite = Convert.ToDecimal(txtLimiteDeCredito.Text);
-                IND++; //IND = IND + 1
-                Listar();
-                MessageBox.Show("los datos se cargaron correctamente");
-                txtCodigo.Text = "";
-                txtUsuario.Text = "";
-                txtDeuda.Text = "";
-                txtLimiteDeCredito.Text= "";
+                Int32 i = 0;
+                while (Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < IND) // dentro del rango busca el codigo que se escribio
+                {
+                    i++;
+                }
+                if (i == IND)
+                {
+                    Clientes[IND].Codigo = Convert.ToInt32(txtCodigo.Text);
+                    Clientes[IND].Usuario = txtUsuario.Text;
+                    Clientes[IND].Deuda = Convert.ToDecimal(txtDeuda.Text);
+                    Clientes[IND].Limite = Convert.ToDecimal(txtLimiteDeCredito.Text);
+                    IND++; //IND = IND + 1
+                    MessageBox.Show("Cliente cargado correctamente");
+                    txtCodigo.Text = "";
+                    txtUsuario.Text = "";
+                    txtDeuda.Text = "";
+                    txtLimiteDeCredito.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("el codigo existe ingrese otro");
+                    txtCodigo.Text = "";
+                }
+                    
             }
             else
             {
-                MessageBox.Show("no es posible cargar mas datos");
+                MessageBox.Show("no es posible cargar mas clientes");
             }
+            Listar();
 
         }
 
@@ -76,6 +90,9 @@ namespace Actividad3Lb2Diaz
         private void Form1_Load(object sender, EventArgs e)
         {
             btnCargar.Enabled = false;
+            precarga();
+            Listar();
+
         }
 
         private void comprobar()
@@ -109,6 +126,40 @@ namespace Actividad3Lb2Diaz
         private void txtLimiteDeCredito_TextChanged(object sender, EventArgs e)
         {
             comprobar();
+        }
+        private void precarga()
+        {
+            Clientes[IND].Codigo = 10;
+            Clientes[IND].Usuario = "Benja";
+            Clientes[IND].Deuda = 1000;
+            Clientes[IND].Limite = 10000;
+            IND++; //IND = IND + 1
+            Clientes[IND].Codigo = 20;
+            Clientes[IND].Usuario = "Diego";
+            Clientes[IND].Deuda = 0;
+            Clientes[IND].Limite = 20000;
+            IND++; //IND = IND + 1
+            Clientes[IND].Codigo = 20;
+            Clientes[IND].Usuario = "Maria";
+            Clientes[IND].Deuda = 3000;
+            Clientes[IND].Limite = 30000;
+            IND++; //IND = IND + 1
+        }
+
+        private void btnDeudores_Click(object sender, EventArgs e)
+        {
+            Decimal Total = 0;
+            dgvClientes.Rows.Clear();
+            for (Int32 i = 0; i < Clientes.Length; i++)
+            {
+                if (Clientes[i].Deuda > 0)
+                {
+                    dgvClientes.Rows.Add(Clientes[i].Codigo, Clientes[i].Usuario, Clientes[i].Deuda, Clientes[i].Limite);
+                    Total = Total + Clientes[i].Deuda;
+                }
+                
+            }
+            lblTotalDeuda.Text = Total.ToString();
         }
     }
 }
