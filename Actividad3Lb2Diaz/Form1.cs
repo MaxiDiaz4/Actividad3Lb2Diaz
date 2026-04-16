@@ -17,38 +17,24 @@ namespace Actividad3Lb2Diaz
             InitializeComponent();
         }
 
-        //declaracion de un registro
-        private struct RegCli
-            {
-            public Int32 Codigo;
-            public String Usuario;
-            public Decimal Deuda;
-            public Decimal Limite;
-            }
-        //Declaracion del vector
-
-        private RegCli[] Clientes = new RegCli[10];
-
-        //Declaracion del indice
-
-        private Int32 IND = 0;
+        
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            if (IND < Clientes.Length)
+            if (Vector.IND < Vector.Clientes.Length)
             {
                 Int32 i = 0;
-                while (Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < IND) // dentro del rango busca el codigo que se escribio
+                while (Vector.Clientes[i].Codigo != Convert.ToInt32(txtCodigo.Text) && i < Vector.IND) // dentro del rango busca el codigo que se escribio
                 {
                     i++;
                 }
-                if (i == IND)
+                if (i ==Vector.IND)
                 {
-                    Clientes[IND].Codigo = Convert.ToInt32(txtCodigo.Text);
-                    Clientes[IND].Usuario = txtUsuario.Text;
-                    Clientes[IND].Deuda = Convert.ToDecimal(txtDeuda.Text);
-                    Clientes[IND].Limite = Convert.ToDecimal(txtLimiteDeCredito.Text);
-                    IND++; //IND = IND + 1
+                    Vector.Clientes[Vector.IND].Codigo = Convert.ToInt32(txtCodigo.Text);
+                    Vector.Clientes[Vector.IND].Usuario = txtUsuario.Text;
+                    Vector.Clientes[Vector.IND].Deuda = Convert.ToDecimal(txtDeuda.Text);
+                    Vector.Clientes[Vector.IND].Limite = Convert.ToDecimal(txtLimiteDeCredito.Text);
+                    Vector.IND++; //IND = IND + 1
                     MessageBox.Show("Cliente cargado correctamente");
                     txtCodigo.Text = "";
                     txtUsuario.Text = "";
@@ -78,10 +64,10 @@ namespace Actividad3Lb2Diaz
         {
             Decimal Total = 0;
             dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Clientes.Length; i++)
+            for (Int32 i = 0; i < Vector.Clientes.Length; i++)
             {
-                dgvClientes.Rows.Add(Clientes[i].Codigo, Clientes[i].Usuario, Clientes[i].Deuda, Clientes[i].Limite);
-                Total = Total + Clientes[i].Deuda;
+                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Deuda, Vector.Clientes[i].Limite);
+                Total = Total + Vector.Clientes[i].Deuda;
             }
             lblTotalDeuda.Text = Total.ToString();
 
@@ -129,37 +115,38 @@ namespace Actividad3Lb2Diaz
         }
         private void precarga()
         {
-            Clientes[IND].Codigo = 10;
-            Clientes[IND].Usuario = "Benja";
-            Clientes[IND].Deuda = 1000;
-            Clientes[IND].Limite = 10000;
-            IND++; //IND = IND + 1
-            Clientes[IND].Codigo = 20;
-            Clientes[IND].Usuario = "Diego";
-            Clientes[IND].Deuda = 0;
-            Clientes[IND].Limite = 20000;
-            IND++; //IND = IND + 1
-            Clientes[IND].Codigo = 20;
-            Clientes[IND].Usuario = "Maria";
-            Clientes[IND].Deuda = 3000;
-            Clientes[IND].Limite = 30000;
-            IND++; //IND = IND + 1
+            Vector.Clientes[Vector.IND].Codigo = 10;
+            Vector.Clientes[Vector.IND].Usuario = "Benja";
+            Vector.Clientes[Vector.IND].Deuda = 1000;
+            Vector.Clientes[Vector.IND].Limite = 10000;
+            Vector.IND++; //IND = IND + 1
+            Vector.Clientes[Vector.IND].Codigo = 20;
+            Vector.Clientes[Vector.IND].Usuario = "Diego";
+            Vector.Clientes[Vector.IND].Deuda = 0;
+            Vector.Clientes[Vector.IND].Limite = 20000;
+            Vector.IND++; //IND = IND + 1
+            Vector.Clientes[Vector.IND].Codigo = 20;
+            Vector.Clientes[Vector.IND].Usuario = "Maria";
+            Vector.Clientes[Vector.IND].Deuda = 3000;
+            Vector.Clientes[Vector.IND].Limite = 30000;
+            Vector.IND++; //IND = IND + 1
         }
 
         private void btnDeudores_Click(object sender, EventArgs e)
         {
             Decimal Total = 0;
             dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Clientes.Length; i++)
+            for (Int32 i = 0; i < Vector.IND; i++)
             {
-                if (Clientes[i].Deuda > 0)
+                if (Vector.Clientes[i].Deuda > 0)
                 {
-                    dgvClientes.Rows.Add(Clientes[i].Codigo, Clientes[i].Usuario, Clientes[i].Deuda, Clientes[i].Limite);
-                    Total = Total + Clientes[i].Deuda;
+                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Deuda, Vector.Clientes[i].Limite);
+                    Total = Total + Vector.Clientes[i].Deuda;
                 }
                 
             }
             lblTotalDeuda.Text = Total.ToString();
         }
+
     }
 }
