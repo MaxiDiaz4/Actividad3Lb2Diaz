@@ -69,5 +69,15 @@ namespace Actividad3Lb2Diaz
             }
             
         }
+
+        private void gpConsultarDatos_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmListadoOrdenado_Load(object sender, EventArgs e)
+        {
+            Vector.CargaDatosDePrueba();
+        }
     }
 }

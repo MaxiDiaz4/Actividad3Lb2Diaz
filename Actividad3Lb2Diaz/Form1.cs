@@ -52,32 +52,20 @@ namespace Actividad3Lb2Diaz
             {
                 MessageBox.Show("no es posible cargar mas clientes");
             }
-            Listar();
+            
 
         }
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            Listar();
+           
         }
-        private void Listar()
-        {
-            Decimal Total = 0;
-            dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Vector.Clientes.Length; i++)
-            {
-                dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Deuda, Vector.Clientes[i].Limite);
-                Total = Total + Vector.Clientes[i].Deuda;
-            }
-            lblTotalDeuda.Text = Total.ToString();
-
-        }
-
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             btnCargar.Enabled = false;
             precarga();
-            Listar();
+            
 
         }
 
@@ -132,21 +120,7 @@ namespace Actividad3Lb2Diaz
             Vector.IND++; //IND = IND + 1
         }
 
-        private void btnDeudores_Click(object sender, EventArgs e)
-        {
-            Decimal Total = 0;
-            dgvClientes.Rows.Clear();
-            for (Int32 i = 0; i < Vector.IND; i++)
-            {
-                if (Vector.Clientes[i].Deuda > 0)
-                {
-                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Deuda, Vector.Clientes[i].Limite);
-                    Total = Total + Vector.Clientes[i].Deuda;
-                }
-                
-            }
-            lblTotalDeuda.Text = Total.ToString();
-        }
+       
 
     }
 }

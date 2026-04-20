@@ -27,7 +27,8 @@ namespace Actividad3Lb2Diaz
 
         private void listadoDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form formulario = new frmClientesDeudores();
+            formulario.Show();
         }
 
         private void listadoDeClientesOrdenadosPorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +36,18 @@ namespace Actividad3Lb2Diaz
             Form Ordenados = new frmListadoOrdenado();
             Ordenados.MdiParent = this;
             Ordenados.Show();
+        }
+
+        private void listadoDeTodosLosClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form formulario= new frmListadoClientes();
+            formulario.Show();
+            
+        }
+
+        private void frmManejoClientes_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
