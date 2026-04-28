@@ -29,34 +29,29 @@ namespace Actividad3Lb2Diaz
 
         private void frmListadoClientes_Load(object sender, EventArgs e)
         {
-            Vector.CargaDatosDePrueba();
             Listar();
         }
         private void Listar()
         {
             Int32 TotalClientes = 0;
             Decimal Total = 0;
-            dgvListadoClientes.Rows.Clear();
-            for (Int32 i = 0; i < Vector.Clientes.Length; i++)
+            dgvConsulta.Rows.Clear();
+            for (Int32 i = 0; i < Vector.IND; i++)
             {
-                TotalClientes = TotalClientes + 1;
-                dgvListadoClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Deuda, Vector.Clientes[i].Limite);
+                dgvConsulta.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                Total = Total + Vector.Clientes[i].Deuda;
+                
+                
+                TotalClientes++;
+
+
+
+                
             }
-            int cantidadDatos = 0;
-            decimal sumaTotal = 0;
-
-            foreach (DataGridViewRow fila in dgvListadoClientes.Rows)
-            {
-                // Evitamos contar la fila vacía extra que pone el DataGridView por defecto al final
-                if (fila.IsNewRow) continue;
-
-                cantidadDatos++;
-
-               
-            }
+           
             lblDeudaMostrar.Text = Total.ToString();
-            lblClientesMostrar.Text = cantidadDatos.ToString();
-            lblDeuPromedioMostrar.Text = Total.ToString();
+            lblClientesMostrar.Text = TotalClientes.ToString();
+            lblDeuPromedioMostrar.Text = (Total / TotalClientes).ToString();
 
         }
     }

@@ -77,7 +77,7 @@ namespace Actividad3Lb2Diaz
 
         private void frmListadoOrdenado_Load(object sender, EventArgs e)
         {
-            Vector.CargaDatosDePrueba();
+           
         }
     }
 }

@@ -64,7 +64,7 @@ namespace Actividad3Lb2Diaz
         private void Form1_Load(object sender, EventArgs e)
         {
             btnCargar.Enabled = false;
-            precarga();
+          
             
 
         }

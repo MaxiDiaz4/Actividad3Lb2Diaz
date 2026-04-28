@@ -24,9 +24,9 @@ namespace Actividad3Lb2Diaz
 
         private void frmClientesDeudores_Load(object sender, EventArgs e)
         {
-            Vector.CargaDatosDePrueba();
+            
         }
-       
+
         private void btnListarDeudores_Click(object sender, EventArgs e)
         {
             Decimal Total = 0;
@@ -42,6 +42,35 @@ namespace Actividad3Lb2Diaz
             }
             lblTotalDeuda.Text = Total.ToString();
         }
+
+        private void btnListarDeudores_Click_1(object sender, EventArgs e)
+        {
+            Listar();
+        }
+
+        private void Listar()
+        {
+            decimal TotalDeudas = 0;
+            dgvClientes.Rows.Clear();
+            int CantidadClientes = 0;
+            for (int i = 0; i < Vector.IND; i++)
+            {
+                if (Vector.Clientes[i].Deuda > 0)
+                {
+                    dgvClientes.Rows.Add(Vector.Clientes[i].Codigo, Vector.Clientes[i].Usuario, Vector.Clientes[i].Limite, Vector.Clientes[i].Deuda);
+                    TotalDeudas = TotalDeudas + Vector.Clientes[i].Deuda;
+                    CantidadClientes++;
+                }
+            }
+            lblTotalDeuda.Text = TotalDeudas.ToString("C");
+            lblCantidadClientes.Text = CantidadClientes.ToString();
+            lblPromedioDeuda.Text = (TotalDeudas / CantidadClientes).ToString("C");
+
+
+
+
+        }
+
+
     }
-    
 }
